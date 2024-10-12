@@ -9,7 +9,7 @@ import (
 func main() {
 	http.HandleFunc("/hello-world", handleHelloworld)
 	http.HandleFunc("/health", handleHealth)
-	http.HandleFunc("/new-endpoitn", handleNewEndpoint)
+	http.HandleFunc("/new-endpoint", handleNewEndpoint)
 	addr := "localhost:8000"
 	log.Printf("Lostening on %s ...", addr)
 	err := http.ListenAndServe(addr, nil)

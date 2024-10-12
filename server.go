@@ -9,6 +9,7 @@ import (
 func main() {
 	http.HandleFunc("/hello-world", handleHelloworld)
 	http.HandleFunc("/health", handleHealth)
+	http.HandleFunc("/new-endpoitn", handleNewEndpoint)
 	addr := "localhost:8000"
 	log.Printf("Lostening on %s ...", addr)
 	err := http.ListenAndServe(addr, nil)
@@ -28,6 +29,12 @@ func handleHealth(writer http.ResponseWriter, request *http.Request) {
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 	}
 
+}
+func handleNewEndpoint(writer http.ResponseWriter, request *http.Request) {
+	if request.Method != "GET" {
+		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
+	}
+	write(writer, "hello from new-endpoint")
 }
 func write(writer http.ResponseWriter, msg string) {
 	response := []byte(msg)

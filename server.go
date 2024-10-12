@@ -28,7 +28,7 @@ func handleHealth(writer http.ResponseWriter, request *http.Request) {
 	if request.Method != "GET" {
 		http.Error(writer, http.StatusText(http.StatusMethodNotAllowed), http.StatusMethodNotAllowed)
 	}
-
+	write(writer, "hello from health")
 }
 func handleNewEndpoint(writer http.ResponseWriter, request *http.Request) {
 	if request.Method != "GET" {

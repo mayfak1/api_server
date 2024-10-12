@@ -10,6 +10,7 @@ func main() {
 	http.HandleFunc("/hello-world", handleHelloworld)
 	http.HandleFunc("/health", handleHealth)
 	http.HandleFunc("/new-endpoint", handleNewEndpoint)
+	fmt.Println("added print statement")
 	addr := "localhost:8000"
 	log.Printf("Lostening on %s ...", addr)
 	err := http.ListenAndServe(addr, nil)
